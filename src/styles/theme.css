@@ -1,0 +1,35 @@
+.container_main_theme{
+    background-color: #FE941C;
+}
+.second_block_theme_main{
+    margin-top: 50px;
+}
+
+#first_blur_bee{
+    margin-left: 315px;
+    margin-top: -220px;
+}
+.frst_blck_thm_inner{
+    text-align: center;
+    margin-top: -130px;
+}
+.scnd_blck_thm_inner_1{
+    text-align: center;
+}
+.scnd_blck_thm_inner_2{
+    margin-top: 50px;
+}
+.form_blcks{
+    width: 50%;
+}
+.thm_main_form{
+    display: flex;
+}
+#second_blur_bee_thm{
+    position: absolute;
+    margin-left: 70px;
+    margin-top: -60px;
+}
+.thrd_blck_thm_last{
+    margin-top: 100px;
+}

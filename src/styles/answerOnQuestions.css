@@ -1,0 +1,35 @@
+#footerFirstBlckAnswr{
+    position: absolute;
+    width: 100%;
+    margin-top: -120px;
+}
+#headerFrstBlckAnswr{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+#bodyFirstBlckAnswr{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+#logoAswerQuest{
+    width: 80%;
+}
+#backBtnAnswer{
+    margin-right: 30px;
+}
+#answerSecndBlck{
+    margin-top: 50px;
+    width: 100%;
+    height: 340px;
+}
+#answerThrdBlck{
+    margin-top: 30px;
+    padding-bottom: 5px;
+}
+#linkAnsw{
+    display: contents;
+}

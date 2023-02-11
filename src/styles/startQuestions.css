@@ -1,0 +1,25 @@
+.centralMenuBlck{
+    text-align: center;
+}
+.backBtnBlckQuest{
+    padding-top: 25px;
+    text-align: right;
+    padding-right: 30px;
+
+}
+.centralBlcklogo{
+    width: 45%;
+    text-align: center;
+    margin: auto;
+}
+.centralMenuBlckText{
+    margin-top: 20px;
+}
+#startQuestBlocksBeeBlur{
+    position: absolute;
+}
+.numberOfQuestion{
+    text-align: right;
+    width: 100%;
+    padding-top: 30px;
+}

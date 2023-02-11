@@ -1,0 +1,51 @@
+
+.darkTheme{
+  background: linear-gradient(193.78deg, #22222E -1.22%, #0C0B10 101.9%);
+}
+.darkTheme textarea{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+.darkTheme .inputChangeData{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+.darkTheme #inputChangePassword1{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+.darkTheme #inputChangePassword2{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+.darkTheme span{  
+  color: white;
+}
+.lightTheme{
+  background-color: white;
+}
+
+.darkTheme #loginPageEmail{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.darkTheme #loginPagePassword{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.darkTheme #userEmailInpt{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.darkTheme #userNameInpt{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.darkTheme #userPasswordInpt{
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}

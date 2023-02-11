@@ -1,0 +1,28 @@
+#switch{ 
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    outline: none;
+    background-color: white;
+    border-radius: 20px;
+    transition: .5s; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    margin-left: 30px;
+}
+#switch::before{
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    content: "";
+    background-color: #FE941C;
+    transition: 0.5s;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    position: absolute;
+    margin-top: 1px;
+}
+#switch:checked:before {
+    Left: 50px;
+}
+#switch:checked{
+    background: rgba(0, 0, 0, 0)
+}

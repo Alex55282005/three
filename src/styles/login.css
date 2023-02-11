@@ -1,0 +1,22 @@
+#forget_password_btn{
+    margin-top: 35px;
+}
+.login_block{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 110px;
+}
+#wrongData{
+    display: none;
+}
+#wrongDataEnable{
+    display: block;
+    color: red;
+    padding: 10px;
+    position: absolute;
+    margin-left: 80px;
+    margin-top: -40px;
+    font-size: 13px;
+}

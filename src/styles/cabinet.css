@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.cabFrstBlck{
+    position: static;
+}
+.cabScndBlck{
+    position: static;
+    margin-top: 130px;
+}
+#cabCross{
+    margin-left: 300px;
+}
+#cabMenuBlck {
+    width: 65%;
+    margin: auto;
+    text-align: center;
+}
+#cabMenuItemTxt{
+    margin-top: 15px;
+}
+#cabHeader{
+    padding-top: 30px;
+}
+#cabMenuLine{
+    display: block;
+    margin: auto;
+}

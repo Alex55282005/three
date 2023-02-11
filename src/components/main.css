@@ -1,0 +1,112 @@
+
+@media screen and (max-width: 426px){
+    .login_screen_header{
+      width: 100%;
+    }
+    .middle_block{
+      width: 100%;
+    }
+    .second_middle_block{
+      
+    }
+    .fon_bee_image{
+      position: absolute;
+      margin-top: -130px;
+    }
+    .middle_bee_block{
+      width: 82%;
+      margin: auto;
+    }
+    #bee_house{
+      margin-top: -50px;
+    }
+  
+    .logo_block{
+      width: 50%;
+      height: auto;
+      margin: auto;
+  
+    }
+  
+    #logo_block_line{
+      background-color: #703E0B;
+      width: 100%;
+      height: 1px;
+      margin-top: 10px;
+    }
+    .registration_block{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 110px;
+    }
+  
+    #registration_button{
+      border: none;
+      margin: auto;
+      background-color: white;
+    }
+    .down_register_block{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+    margin-top: 90px;
+    }
+    #already_regist_button{
+      border: none;
+      width: 150px;
+      margin-left: 25px;
+    }
+    #login_button{
+      border: none;
+      width: 80px;
+      margin-right: 20px;
+    }
+    #strelka{
+      margin-bottom: 4px;
+      margin-left: 4px;
+    }
+    #registr_btn{
+      position: absolute;
+      margin-top: -10px;
+    }
+  }
+  
+  @media screen and (min-width: 427px){
+    html{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 359px){
+    html{
+      display: none;
+    }
+  }
+  /* @media screen and (min-width: 360px){
+    .registration_block{
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  @media screen  and (max-height:750px) {
+    .registration_block{
+      margin-top: 150px;
+      position: initial;
+    }
+    .third_block_main{
+      margin-top: 450px;
+      position: absolute;
+    }
+    #bee_header_main_2 {
+      margin-left: 270px;
+    }
+    #second_div_main {
+      width: 50%;
+      margin-left: 85px;
+      margin-top: 70px;
+    }
+
+  } */

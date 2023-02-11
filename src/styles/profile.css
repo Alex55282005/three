@@ -1,0 +1,62 @@
+#backBtnProf{
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 35px;
+}
+#menuProfBlck {
+    width: 52%;
+    margin: auto;
+    text-align: center;
+    margin-top: -310px;
+}
+#nameTxt{
+    margin-top: 30px;
+}
+#logoProf{
+    width: 85%;
+    margin: auto;
+    margin-left: -20px;
+}
+#secondBlckProf{
+    width: 80%;
+    height: 250px;
+    margin: auto;
+    margin-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.secondBlckProfCont{
+    height: 60px;
+}
+.changeBlckProf{
+    width: 65%;
+    display: inline-block;
+    margin-left: 25px;
+}
+.nameSpaceBlckProf{
+    width: 25%;
+    display: inline-block;
+}
+.penBtn{
+    width: 18px;
+    float: right;
+}
+.lineUnder{
+    width: 100%;
+}
+#footerProf{
+    margin-top: 30px;
+}
+.userDataP{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    font-size: 16px;
+    color: #CA5E06;
+    width: 70%;
+    overflow: hidden;
+}
+#passwordImg{
+    width: 50%;
+}
