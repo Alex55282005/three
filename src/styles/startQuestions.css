@@ -1,10 +1,16 @@
 .centralMenuBlck{
     text-align: center;
 }
+.frstQuestA{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
 .backBtnBlckQuest{
     padding-top: 25px;
-    text-align: right;
     padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
 
 }
 .centralBlcklogo{
@@ -20,6 +26,110 @@
 }
 .numberOfQuestion{
     text-align: right;
+    width: 100%;
+    padding-top: 30px;
+}
+.numberOfQuestion2{
+    width: 100%;
+    padding-top: 30px;
+}
+.svgQuestionBlck{
+    text-align: center;
+    padding-top: 50px;
+}
+.startAnswBtnYes{
+    width: 30%;
+    height: 70px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(210.07deg, #58B57D 4.28%, #3D9660 98.2%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    color: white;
+}
+.startAnswBtnNo{
+    width: 30%;
+    height: 70px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(195.41deg, #DD4040 -6.17%, #A62626 105.91%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    color: white;
+}
+.svgBtnQuestionBlck{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 125px;
+    padding-bottom: 55px;
+}
+.svgBtnQuestionBlckAct{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 125px;
+    padding-bottom: 55px;
+}
+.startAnswBtnYesAct{
+    display: none;
+}
+.startAnswBtnNoAct{
+    display: none;
+}
+.startAnswBtnYesVal{
+    display: none;
+}
+.startAnswBtnYesValAct{
+    width: 45%;
+    height: 70px;
+    color: white;
+    border: none;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background: linear-gradient(204.35deg, #58B57D -6.04%, #33955A 100.73%);
+    box-shadow: -5px 65px 45px rgb(112 99 90 / 25%);
+    font-size: 23px;
+    text-align: right;
+    padding-right: 50px;
+}
+.startAnswBtnNoVal{
+    display: none;
+}
+.startAnswBtnNoValAct{
+    width: 45%;
+    height: 70px;
+    color: white;
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background: linear-gradient(195.41deg, #DD4040 -6.17%, #A62626 105.91%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    text-align: left;
+    padding-left: 50px;
+}
+.nextPageBtn{
+    display: none;
+}
+.nextPageBtnAct{
+    display: block;
+    border: none;
+    width: 70%;
+    background: linear-gradient(78.7deg, #F06413 6.14%, #FF991C 79.12%);
+    box-shadow: -5px 65px 45px rgb(208 97 14 / 25%);
+    height: 55px;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 70px;
+    margin-top: 25px;
+}
+
+#thrdQuestImg{
+    width: 75%;    
+}
+.numberOfQuestion3{
+    text-align: left;
     width: 100%;
     padding-top: 30px;
 }

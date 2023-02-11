@@ -18,6 +18,8 @@ import ChangeEmail from "./plugins/changeEmail"
 import ChangePassword from "./plugins/changePassword"
 import ChangeName from "./plugins/changeName"
 import FirstStartQuest from "./start_questions/first_question"
+import SecondStartQuest from "./start_questions/second_question"
+import ThirdStartQuest from "./start_questions/third_question"
 
 
 function App() {
@@ -42,8 +44,8 @@ function App() {
         <Route path='change_password' element={< ChangePassword />}/>
         <Route path='change_name' element={< ChangeName />}/>
         <Route path='start_question_1' element={< FirstStartQuest />}/>
-        {/* <Route path='start_question_2' element={< FirstStartQuest />}/>
-        <Route path='start_question_3' element={< FirstStartQuest />}/> */}
+        <Route path='start_question_2' element={< SecondStartQuest />}/>
+        <Route path='start_question_3' element={< ThirdStartQuest />}/>
       </Routes>
     </BrowserRouter>
   );

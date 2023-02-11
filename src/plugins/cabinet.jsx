@@ -140,7 +140,22 @@ function Cabinet() {
             </div>
 
             <div className="cabTrdBlck">
+                <div className="questionTemplate">
+                    <div className="questionTemplateFrstBlck">
+                        <p className="questionData">23.11.22</p>
+                        <p className="questionDeleteBtn">...</p>
+                    </div>
 
+                    <div className="questionTemplateSecndBlck">
+                        <p className="questionText">МЫ ОДНИ В СОЛНЕЧНОЙ СИСТЕМЕ ?</p>
+                    </div>
+
+                    <div className="questionTemplateThrdBlck">
+                        <p className="questionYes">33</p>
+                        <p className="questionAnswersP">ОТВЕТЫ</p>
+                        <p className="questionNo">476</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

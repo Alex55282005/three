@@ -3,6 +3,7 @@ import { Link, Link as RouterLink, Navigate, redirect } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
 import { useState } from "react";
 import "../styles/registr.css" ;
+import User from "../statements/user"
 
 function Registration_Page() {
     function registrationData() {
@@ -101,6 +102,7 @@ function Registration_Page() {
         };
         const arr = [];
         arr.push(user);
+        User(arr[0]);
 
         axios.post("https://63e3df33c919fe386c110a58.mockapi.io/users", arr[0])
           .then(function (response) {
