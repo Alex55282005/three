@@ -49,3 +49,54 @@
   background: rgba(0, 0, 0, 0);
   color: white;
 }
+
+.darkTheme pre{
+  color: #BAA289;
+}
+.darkTheme .textOfQuest{
+  color: #BAA289;
+}
+
+.darkTheme .questionTemplate{
+  background: linear-gradient(250.35deg, rgba(187, 163, 140, 0.7) -3.89%, rgba(80, 87, 112, 0.7) 99.71%);
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.35);
+}
+.darkTheme .questionData{
+  color: #D5B897;
+}
+.darkTheme .questionDeleteBtn{
+  color: #EED5B7;
+}
+.darkTheme .questionText{
+  color: #F8F8F8;
+}
+.darkTheme .questionAnswersP{
+  color: #D4B897;
+}
+.darkTheme .questionYes{
+  color: #40E982;
+}
+.darkTheme .questionNo{
+  color: #FF6B6B;
+}
+.darkTheme .deleteText{
+  color: #404050;
+}
+.darkTheme .deleteQuestionBlckBackBtnLight{
+  display: none;
+}
+.darkTheme .deleteQuestionBlckBackBtnDark{
+  display: block;
+  float: right;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+.darkTheme .rubishIconLight{
+  display: none;
+}
+.darkTheme .rubishIconDark{
+  display: block;
+}
+.darkTheme .containerNull{
+  height: 9000px;
+}

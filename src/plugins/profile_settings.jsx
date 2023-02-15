@@ -4,11 +4,12 @@ import logo from "../resources/logo.png"
 import pen from "../resources/Vector.png"
 import line from "../resources/underlineProfile.png"
 import passwordImg from "../resources/password.png"
-
+import setTheme from "../statements/setTheme";
 
 export default function ProfileSettings() {
 
     function setDataToPosition() {
+        setTheme();
         const userEmailProfile = document.querySelector("#userEmailProfile");
         const userNameProfile = document.querySelector("#userNameProfile");
         const userPasswordProfile = document.querySelector("#userPasswordProfile");

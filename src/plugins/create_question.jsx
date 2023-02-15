@@ -3,6 +3,7 @@ import "../styles/create_quest.css" ;
 import logo from "../resources/logo.png"
 import SwitchThemeBtn from "../statements/switchBtn"
 import axios from "axios";
+import setTheme from "../statements/setTheme";
 
 function Create_Question() {
 
@@ -36,7 +37,7 @@ function Create_Question() {
 
 
     return (
-        <div className="container_main">
+        <div className="container_main" onLoad={setTheme}>
         <div className="header_cq">
             <div className="headerBlckQuestReq">
                 <SwitchThemeBtn/>

@@ -33,3 +33,155 @@
 #linkAnsw{
     display: contents;
 }
+.questionContainer{
+    text-align: center;
+}
+.answBtnCont{
+    display: flex;
+    justify-content: space-evenly;
+}
+.answBtnContAct{
+    display: flex;
+    justify-content: space-between;
+}
+.textOfQuest{
+    color: #703E0B;
+    font-family: 'Open Sans', sans-serif;
+    width: 80%;
+    margin: auto;
+    font-size: 23px;
+    height: 250px;
+}
+.AnswBtnYes{
+    width: 30%;
+    height: 70px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(210.07deg, #58B57D 4.28%, #3D9660 98.2%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    color: white;
+}
+.AnswBtnNo{
+    width: 30%;
+    height: 70px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(195.41deg, #DD4040 -6.17%, #A62626 105.91%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    color: white;
+}
+.AnswBtnYesAct{
+    display: none;
+}
+.AnswBtnNoAct{
+    display: none;
+}
+.AnswBtnYesVal{
+    display: none;
+}
+.AnswBtnYesValAct{
+    width: 45%;
+    height: 70px;
+    color: white;
+    border: none;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background: linear-gradient(204.35deg, #58B57D -6.04%, #33955A 100.73%);
+    box-shadow: -5px 65px 45px rgb(112 99 90 / 25%);
+    font-size: 23px;
+    text-align: right;
+    padding-right: 50px;
+}
+.AnswBtnNoVal{
+    display: none;
+}
+.AnswBtnNoValAct{
+    width: 45%;
+    height: 70px;
+    color: white;
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background: linear-gradient(195.41deg, #DD4040 -6.17%, #A62626 105.91%);
+    box-shadow: -5px 65px 45px rgba(112, 99, 90, 0.25);
+    font-size: 23px;
+    text-align: left;
+    padding-left: 50px;
+}
+.nextQuestBtn{
+    display: none;
+}
+.nextQuestBtnAct{
+    display: block;
+    border: none;
+    width: 70%;
+    background: linear-gradient(78.7deg, #F06413 6.14%, #FF991C 79.12%);
+    box-shadow: -5px 65px 45px rgb(208 97 14 / 25%);
+    height: 55px;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 70px;
+    margin-top: 80px;
+}
+.idOfQuest{
+    display: none;
+}
+.popup-window-quest{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(10px);
+    transition: 1s;
+    z-index: 2;
+    display: none;
+}
+.popup-window-quest-opened{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(10px);
+    transition: 1s;
+    z-index: 2;
+    display: block;
+}
+#pop-wind-cont-quest{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#pop-wind-body-quest {
+    margin: auto;
+    width: 90%;
+    height: 350px;
+    text-align: center;
+    background: linear-gradient(38.86deg, #F06413 -1.25%, #FF991C 92.84%);
+    box-shadow: -15px 70px 70px rgba(0, 0, 0, 0.25);
+    border-radius: 55px;
+    position: relative;
+}
+#popup-btn{
+    width: 50%;
+    height: 60px;
+    border: none;
+    background-color: #FFFFFF;
+    color: #CA5E06;
+    border-radius: 35px;
+    font-size: 23px;
+}
+#pop-wind-body-quest-second{
+    padding: 30px;
+}
+#pop-wind-body-quest-third{
+    padding-top: 70px;
+}
+#pop-up-h2{
+    color: white;
+}

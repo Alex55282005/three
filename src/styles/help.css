@@ -14,7 +14,7 @@
     margin: auto;
     margin-top: 10px;
     width: 90%;
-    height: 760px;
+    height: 820px;
     filter: drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.25));
     border-radius: 15px;
     border: 0.5px solid #703E0B;
@@ -25,4 +25,20 @@
 }
 #helpText1{
     margin-top: 25px;
+}
+pre{
+    color: #703E0B;
+    font-family: 'Open Sans', sans-serif;
+}
+#first-pre{
+    font-size: 27px;
+}
+#second-pre{
+    font-size: 20px;
+}
+.zaholovok-pre{
+    font-size: 20px;
+}
+.text-pre{
+    font-size: 17px;
 }

@@ -1,13 +1,9 @@
-body{
-    margin: 0;
-    padding: 0;
-}
-.cabFrstBlck{
+#fixed-block-cabinet{
     position: fixed;
+    width: 100%;
 }
-.cabScndBlck{
-    position: fixed;
-    margin-top: 130px;
+.containerNull{
+    height: 900px;
 }
 #cabCross{
     margin-left: 300px;
@@ -27,16 +23,16 @@ body{
     display: block;
     margin: auto;
 }
-.cabTrdBlck{
-    position: absolute;    
+.cabTrdBlck{  
+    z-index: 1;
     width: 100%;
     padding-left: 30px;
     overflow: hidden;
-    margin-top: 190px;
+    padding-top: 190px;
 }
 .questionTemplate{
     width: 85%;
-    height: 200px;
+    height: fit-content;
     background: linear-gradient(250.35deg, rgba(255, 153, 28, 0.7) -3.89%, rgba(255, 237, 215, 0.7) 99.71%);
     border: 2px solid #FFF3E3;
     border-radius: 15px;
@@ -64,9 +60,12 @@ body{
 .questionTemplateSecndBlck{
     display: flex;
     justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 .questionText{
     color: #703E0B;
+    overflow: hidden;
 }
 .questionTemplateThrdBlck{
     display: flex;
@@ -86,4 +85,49 @@ body{
 .questionAnswersP{
     margin-top: 30px;
     color: #CA5E06;
+}
+.deleteQuestionBlck{
+    display: none;
+}
+.deleteQuestionBlckBackBtnLight{
+    float: right;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.deleteQuestionBlckBackBtnDark{
+    display: none;
+}
+.deleteQuestionBlckBody{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-left: 20px;
+}
+.deleteText{
+    color: #703E0B;
+    font-size: 18px;
+}
+.rubishIconLight{
+    display: block;
+}
+.rubishIconDark{
+    display: none;
+}
+.deleteQuestionBlckAct{
+    width: 90%;
+    height: 90px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid #FFFFFF;
+    box-shadow: -10px 40px 50px rgb(122 93 83 / 40%);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    margin-left: 28px;
+    margin-top: 5px;
+    display: block;
+}
+.questionID{
+    display: none;
 }

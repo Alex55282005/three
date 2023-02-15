@@ -1,19 +1,12 @@
 import axios from "axios";
 import { Link, Link as RouterLink } from "react-router-dom";
 import "../styles/main.css" ;
+import setTheme from "../statements/setTheme";
 
 
 function MainPage() {
-    function setTheme() {
-        const html = document.querySelector("#root");
-        const theme = sessionStorage.getItem("userTheme");
-        if (theme == "white") {
-            html.classList = "ligthTheme";
-        }else if (theme == "dark") {
-            html.classList = "darkTheme";
-        }
-
-
+    function setData() {
+        setTheme();
         const popUp = document.querySelector(".popup-window");
         const backBtn = document.querySelector("#bee_header_main_2");
         const closePopUp = document.querySelector("#closePopUp");
@@ -42,7 +35,7 @@ function MainPage() {
     }
 
     return (
-        <div className="container_main" onLoad={setTheme}>
+        <div className="container_main" onLoad={setData}>
             <div className="popup-window">
                 <div id="pop-wind-cont">
                     <div id="pop-wind-body">

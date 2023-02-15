@@ -2,7 +2,7 @@ import { Link, Link as RouterLink } from "react-router-dom";
 import "../styles/changeDataPages.css"
 import logo from "../resources/logo.png"
 import axios from "axios";
-
+import setTheme from "../statements/setTheme";
 
 export default function ChangeName() {
 
@@ -36,7 +36,7 @@ export default function ChangeName() {
 
 
     return(
-        <div className="container">
+        <div className="container" onLoad={setTheme}>
             <div className="changeProfileFirstBlck">
                 <div className="changeDataFrstHeaderBtn">
                     <Link to={"/profile"} component={RouterLink}>
