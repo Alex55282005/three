@@ -184,7 +184,7 @@ function FirstStartQuest() {
             </div>
 
             <div className="startQuestBlocks">
-                <button id="nextPageBtn1" className="nextPageBtn"><Link to={"/start_question_2"} component={RouterLink} className="frstQuestA">ДАЛЕЕ</Link></button>    
+            <Link to={"/start_question_2"} component={RouterLink} className="frstQuestA"><button id="nextPageBtn1" className="nextPageBtn">ДАЛЕЕ</button></Link>
                 <svg width="100%"  viewBox="0 0 1125 419" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M144.84 466.052L207.65 447.804L223.24 384.352L176.01 339.137L113.19 357.385L97.6104 420.837L144.84 466.052Z" stroke="#FFE0BD" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M144.84 466.052L207.65 447.804L223.24 384.352L176.01 339.137L113.19 357.385L97.6104 420.837L144.84 466.052Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>

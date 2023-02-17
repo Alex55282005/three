@@ -61,12 +61,14 @@ function MainPage() {
                 </div>
             </div>
             <div className="header_main">
-                <svg width="4%" viewBox="0 0 33 44" fill="none" xmlns="http://www.w3.org/2000/svg" id="bee_header_main_1">
+                <div id="amountDiv">
+                <svg width="5%" viewBox="0 0 33 44" fill="none" xmlns="http://www.w3.org/2000/svg" id="bee_header_main_1">
 <path d="M23.9122 26H9.08783C6.67848 26.0029 4.36865 26.9438 2.66498 28.6165C0.961311 30.2892 0.00291102 32.5571 0 34.9226V44H33V34.9226C32.9971 32.5571 32.0387 30.2892 30.335 28.6165C28.6314 26.9438 26.3215 26.0029 23.9122 26Z" fill="#CA5E06"/>
 <path d="M16.5 22C22.8513 22 28 17.0751 28 11C28 4.92487 22.8513 0 16.5 0C10.1487 0 5 4.92487 5 11C5 17.0751 10.1487 22 16.5 22Z" fill="#CA5E06"/>
                 </svg>
-                <p id="amountOfUsers"></p>                
-                <svg width="4%"  viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" id="bee_header_main_2">
+                <p id="amountOfUsers"></p>
+                </div>                
+                <svg width="5%"  viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" id="bee_header_main_2">
 <path d="M2 2L43.9993 44" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
 <path d="M44 2L2.00075 44" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
                 </svg>

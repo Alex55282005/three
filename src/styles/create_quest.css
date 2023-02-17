@@ -1,8 +1,9 @@
-
-
 .first_block_cq{
     text-align: center;
-    margin-top: -330px;
+}
+#beeBlurBackgraund{
+    position: absolute;
+    display: block;
 }
 .second_block_cq{
     text-align: center;
@@ -10,13 +11,15 @@
 }
 .third_block_cq{
     margin-top: 45px;
-    text-align: center;}
-.go_back_btn{
-    position: absolute;
-    margin-left: 300px;
+    text-align: center;
 }
+
 .headerBlckQuestReq{
     padding-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 #enter_question_inpt{
@@ -34,7 +37,7 @@
     color: #D4D0D0;
 }
 #submit_button_create_qst{
-    width: 300px;
+    width: 70%;
     height: 55px;
     border-radius: 30px;
     border: none;
@@ -48,7 +51,7 @@
     position: absolute;
     margin-top: 70px;
     display: block;
-    margin-left: 63px;
+    margin-left: 15%;
 }
 #second_block_cq_inner_block{
     margin-bottom: 20px;

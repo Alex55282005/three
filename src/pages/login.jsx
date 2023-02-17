@@ -266,7 +266,7 @@ function Login_page() {
                 </form>
             </div>
             <div className='login_block'>
-            <svg width="100%" viewBox="0 0 1125 420" fill="none" xmlns="http://www.w3.org/2000/svg" id='img_restr_block'>
+            <svg width="100%" viewBox="0 0 1125 420" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M144.84 467.11L207.65 448.84L223.24 385.31L176.01 340.04L113.19 358.31L97.6101 421.84L144.84 467.11Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M21.23 435.17L84.04 416.9L99.63 353.37L52.4 308.1L-10.42 326.37L-26 389.9L21.23 435.17Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M391.2 529.17L454.01 510.9L469.6 447.36L422.37 402.1L359.55 420.37L343.97 483.9L391.2 529.17Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>

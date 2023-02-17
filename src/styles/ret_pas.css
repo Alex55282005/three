@@ -10,8 +10,8 @@
     flex-wrap: wrap;
     margin-top: 145px;
 }
-.SubmitBtnReturn{
-    width: 275px;
+.SubmitBtnReturn {
+    width: 70%;
     height: 50px;
     border-radius: 30px;
     border: none;
@@ -25,5 +25,5 @@
     position: absolute;
     margin-top: 140px;
     display: block;
-    margin-left: 75px;
+    margin-left: 15%;
 }

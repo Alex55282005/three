@@ -100,3 +100,13 @@
 .darkTheme .containerNull{
   height: 9000px;
 }
+.darkTheme #profileText{
+  color: #BAA289;
+}
+.darkTheme .changeTextP{
+  color: #BAA289;
+}
+
+a{
+  display: contents;
+}

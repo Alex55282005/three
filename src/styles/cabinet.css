@@ -5,9 +5,6 @@
 .containerNull{
     height: 900px;
 }
-#cabCross{
-    margin-left: 300px;
-}
 #cabMenuBlck {
     width: 65%;
     margin: auto;
@@ -18,6 +15,10 @@
 }
 #cabHeader{
     padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 #cabMenuLine{
     display: block;
@@ -25,13 +26,12 @@
 }
 .cabTrdBlck{  
     z-index: 1;
-    width: 100%;
-    padding-left: 30px;
     overflow: hidden;
     padding-top: 190px;
+    text-align: -webkit-center;
 }
 .questionTemplate{
-    width: 85%;
+    width: 80%;
     height: fit-content;
     background: linear-gradient(250.35deg, rgba(255, 153, 28, 0.7) -3.89%, rgba(255, 237, 215, 0.7) 99.71%);
     border: 2px solid #FFF3E3;

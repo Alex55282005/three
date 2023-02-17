@@ -106,7 +106,7 @@ function Answer_on_Questions() {
         btnYesVal.classList = "AnswBtnYesValAct";
         btnNoVal.classList = "AnswBtnNoValAct";
         nextPageBtn.classList = "nextQuestBtnAct";
-        const userID = sessionStorage.getItem("userId");
+        const userID = localStorage.getItem("userId");
 
         if (e.target.innerHTML == "ДА") {
             axios.get("https://63e3df33c919fe386c110a58.mockapi.io/questions/" + idOfQuest.innerHTML).then((response) => {

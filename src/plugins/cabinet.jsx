@@ -17,7 +17,6 @@ function Cabinet() {
             }else if (userQuestions !== 0) {
                 createQuestionBlocks(userQuestions);
             }
-            console.log(userQuestions);
             
         }).catch();
     }
@@ -25,15 +24,15 @@ function Cabinet() {
         const container = document.querySelector(".cabTrdBlck");
         for (let i = 0; i < userQuestions.length; i++) {
             const element = userQuestions[i];
-            container.innerHTML += 
+            container.innerHTML +=  
             
                 `<div class="questionTemplate">
                     <div class="deleteQuestionBlck">
-                        <svg width="6%" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg" class="deleteQuestionBlckBackBtnLight" onClick={closeDeleteBlock}>
+                        <svg width="6%" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg" class="deleteQuestionBlckBackBtnLight">
 <path d="M2 2.97559L41.9993 42.9756" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
 <path d="M42 2.97559L2.00071 42.9756" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
                         </svg>
-                        <svg width="5%" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="deleteQuestionBlckBackBtnDark" onClick={closeDeleteBlock}>
+                        <svg width="5%" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="deleteQuestionBlckBackBtnDark">
 <path d="M2 2L41.9993 42" stroke="#F2EDE8" stroke-width="4" stroke-linecap="round"/>
 <path d="M42 2L2.00071 42" stroke="#F2EDE8" stroke-width="4" stroke-linecap="round"/>
                         </svg>
@@ -56,7 +55,7 @@ function Cabinet() {
                     </div>
                     <div class="questionTemplateFrstBlck">
                         <p class="questionData">${element.dataOfQuest}</p>
-                        <p class="questionDeleteBtn" onClick={deleteBlockAct}>...</p>
+                    <p class="questionDeleteBtn">...</p>
                     </div>
 
                     <div class="questionTemplateSecndBlck">
@@ -72,14 +71,20 @@ function Cabinet() {
             ;
         }
     }
-
-
+    
     function deleteBlockAct() {
-        const deleteQuestionBlck = document.querySelector(".deleteQuestionBlck");
-        deleteQuestionBlck.className = "deleteQuestionBlckAct";
+        
+        // const questionDeleteBtn = document.querySelector(".questionDeleteBtn");
+        // questionDeleteBtn.addEventListener("click", deleteBlck)
+        // function deleteBlck() {
+        //     const deleteQuestionBlck = document.querySelector(".deleteQuestionBlck");
+        // deleteQuestionBlck.className = "deleteQuestionBlckAct";
+        // }
     }
+    deleteBlockAct();
 
     function closeDeleteBlock() {
+        const questionDeleteBtnClose = document.querySelector(".questionDeleteBtn");
         const deleteQuestionBlck = document.querySelector(".deleteQuestionBlckAct");
         deleteQuestionBlck.className = "deleteQuestionBlck";
     }
@@ -90,7 +95,7 @@ function Cabinet() {
                 <div id="cabHeader">
                     <SwitchThemeBtn/>
                     <Link to={"/main_screen"} component={RouterLink}>
-                        <svg width="4%" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" id="cabCross">
+                        <svg width="5%" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" id="cabCross">
 <path d="M2 2.05855L43.9993 44.0585" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
 <path d="M44 2.05855L2.00075 44.0585" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
                         </svg>

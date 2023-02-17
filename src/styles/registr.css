@@ -4,7 +4,7 @@
 }
 .main_bee_block{
     position: absolute;
-    margin-left: 95px;
+    margin-left: 25%;
     margin-top: 60px;
     width: 50%;
     text-align: center;
@@ -42,7 +42,7 @@ input::placeholder{
 }
 
 .SubmitBtn {
-    width: 275px;
+    width: 70%;
     height: 50px;
     border-radius: 30px;
     border: none;
@@ -56,7 +56,7 @@ input::placeholder{
     position: absolute;
     margin-top: 100px;
     display: block;
-    margin-left: 75px;
+    margin-left: 15%;
 }
 .alreadyRegisteredUser{
     display: none;
@@ -98,17 +98,35 @@ input::placeholder{
     padding-top: 10px;
     color: red;
 }
+.down_registration_block{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    margin-top: 90px;
+}
+#img_registr_block{
+    
+}
+}
 
-
-
-
-
-
-
-
-
-
-
+@media screen and (min-width: 360px) and (max-width: 390px) {
+    .down_registration_block {
+        width: 97%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        margin-top: 75px;
+    }
+}
+@media screen and (min-width: 391px) and (max-width: 420px) {
+    .down_registration_block {
+        width: 97%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        margin-top: 85px;
+    }
 }
 
 

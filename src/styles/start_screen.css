@@ -3,15 +3,16 @@
 }
 .main_bee_block1 {
     position: absolute;
-    margin-left: 60px;
+    margin-left: 12.5%;
     margin-top: 60px;
     width: 65%;
     text-align: center;
 }
 .registr_block_start_page{
     position: absolute;
-    margin-left: 85px;
+    margin-left: 20%;
     margin-top: -80px;
+    width: 60%;
 }
 #picture_first_page{
     margin-left: 20px;
@@ -19,8 +20,9 @@
 }
 .registr_block_start_page2{
     position: absolute;
-    margin-left: 100px;
+    margin-left: 20%;
     margin-top: -130px;
+    width: 60%;
 }
 #picture_second_page{
     margin-left: 35px;
@@ -32,8 +34,9 @@
 }
 .registr_block_start_page3{
     position: absolute;
-    margin-left: 105px;
+    margin-left: 20%;
     margin-top: -120px;
+    width: 60%;
 }
 #fourth_second_page{
     margin-left: 25px;
@@ -92,4 +95,14 @@
 #footer_bee_theme{
     position: absolute;
     margin-left: 30px;
+}
+.img_start_block{
+    margin-top: 10px;
+}
+.next_btn{
+    position: absolute;
+    margin-left: 15%;
+}
+.registration_block_start{
+    margin-top: 140px;
 }

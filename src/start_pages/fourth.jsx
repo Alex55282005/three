@@ -152,9 +152,9 @@ function Fourth_start_screen(params) {
 
                 </div>
             </div>
-            <div className='registration_block_return_page'>
-                <Link to={"/start_question_1"} component={RouterLink} id="registr_btn">
-                    <svg width="100%" viewBox="0 0 890 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className='registration_block_start'>
+                <Link to={"/start_question_1"} component={RouterLink} >
+                    <svg width="70%" viewBox="0 0 890 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="next_btn">
 <g filter="url(#filter0_d_7_374)">
 <path d="M770.151 0H129.849C85.7498 0 50 32.4279 50 72.4298V77.5702C50 117.572 85.7498 150 129.849 150H770.151C814.25 150 850 117.572 850 77.5702V72.4298C850 32.4279 814.25 0 770.151 0Z" fill="url(#paint0_linear_7_374)"/>
 </g>
@@ -177,7 +177,7 @@ function Fourth_start_screen(params) {
 </defs>
                     </svg> 
                 </Link>
-                <svg width="100%" viewBox="0 0 1125 420" fill="none" xmlns="http://www.w3.org/2000/svg" id='img_restr_block'>
+                <svg width="100%" viewBox="0 0 1125 420" fill="none" xmlns="http://www.w3.org/2000/svg" className='img_start_block'>
 <path d="M144.84 467.11L207.65 448.84L223.24 385.31L176.01 340.04L113.19 358.31L97.6101 421.84L144.84 467.11Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M21.23 435.17L84.04 416.9L99.63 353.37L52.4 308.1L-10.42 326.37L-26 389.9L21.23 435.17Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M391.2 529.17L454.01 510.9L469.6 447.36L422.37 402.1L359.55 420.37L343.97 483.9L391.2 529.17Z" stroke="#FE941C" stroke-width="2" stroke-miterlimit="10"/>

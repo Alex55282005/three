@@ -56,7 +56,7 @@
     font-size: 18px;
 }
 .btnSubmitChangeData{
-    width: 300px;
+    width: 70%;
     height: 55px;
     border-radius: 30px;
     border: none;
@@ -70,10 +70,10 @@
     position: absolute;
     margin-top: 200px;
     display: block;
-    margin-left: 63px;
+    margin-left: 15%;
 }
 #btnSubmitChangePassword{
-    width: 300px;
+    width: 70%;
     height: 55px;
     border-radius: 30px;
     border: none;
@@ -87,7 +87,7 @@
     position: absolute;
     margin-top: 110px;
     display: block;
-    margin-left: 63px;
+    margin-left: 15%;
 }
 .wrongEmailChange{
     display: none;

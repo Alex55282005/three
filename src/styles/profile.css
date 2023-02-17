@@ -4,10 +4,25 @@
     margin-top: 35px;
 }
 #menuProfBlck {
-    width: 52%;
+    width: 50%;
     margin: auto;
     text-align: center;
-    margin-top: -310px;
+    padding-top: 75px;
+}
+#profileText{
+    font-size: 25px;
+    color: #703E0B;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 30px;
+}
+.changeTextP{
+    font-size: 23px;
+    font-weight: 100;
+    color: #703E0B;
+}
+#backGrBeeBlur{
+    position: absolute;
 }
 #nameTxt{
     margin-top: 30px;
@@ -59,4 +74,11 @@
 }
 #passwordImg{
     width: 50%;
+}
+#logoLineBlock{
+    display: grid;
+    justify-items: center;
+}
+#logoBlockUnderline{
+    margin-top: 15px;
 }
