@@ -49,7 +49,11 @@ export default function ChangeEmail() {
         const newArr = [];
         newArr.push(newEmail.value);
         axios.put("https://63e3df33c919fe386c110a58.mockapi.io/users/" + getUserId, {"email" : newArr[0]}).then((data) => {
-            console.log(data);
+            const popUp = document.querySelector("#popup-window-quest");
+            if (data.statusText == "OK") {
+                popUp.classList = "popup-window-opened";
+            }
+            
         }).catch();
         wrongData.classList = "alreadyRegisteredP";
         sessionStorage.removeItem("userEmail");
@@ -59,9 +63,27 @@ export default function ChangeEmail() {
         const data = document.querySelector("#wrongEmailChange");
         data.classList = "wrongEmailChange";
     }
+    function goToProfile() {
+        
+    }
 
     return(
         <div className="container" onLoad={setTheme}>
+            <div id="popup-window-quest" className="popup-window-quest">
+                <div id="pop-wind-cont-quest">
+                    <div id="pop-wind-body-quest">
+                        <div id="pop-wind-body-quest-second">
+                            <h2 id="pop-up-h2">Email был изменен!</h2>
+                        </div>
+
+                        <div id="pop-wind-body-quest-third">
+                        <Link to={"/profile"} component={RouterLink}>
+                            <button id="popup-btn">OK</button>
+                        </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="changeProfileFirstBlck">
                 <div className="changeDataFrstHeaderBtn">
                     <Link to={"/profile"} component={RouterLink}>

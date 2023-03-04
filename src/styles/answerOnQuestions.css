@@ -185,3 +185,13 @@
 #pop-up-h2{
     color: white;
 }
+.textContainerCreated{
+    width: 80%;
+    height: 210px;
+    margin: auto;
+}
+.textOfCreatedQuest{
+    color: #703E0B;
+    font-size: 20px;
+    overflow-wrap: break-word;  
+}

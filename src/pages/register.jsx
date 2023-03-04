@@ -58,7 +58,7 @@ function Registration_Page() {
 
     }
 
-
+    // /hiveDbUser/Users
     function getAmountUsers(newEmail, newName, newPassword) {
         axios.get("https://63e3df33c919fe386c110a58.mockapi.io/users").then(function(users){
             const usersData = users.data;
@@ -71,6 +71,7 @@ function Registration_Page() {
                 isExistUser(newEmail, newName, newPassword,usersData, newUserId);
             }
         }).catch();
+        
     }
 
 

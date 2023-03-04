@@ -64,3 +64,73 @@
     width: 50%;
     margin-top: 25px;
 }
+.answerOnQuestionMore{
+    display: none;
+}
+.answerOnQuestionMoreAct{
+    color: red;
+    display: block;
+}
+
+.popup-window-createQuestion{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(10px);
+    transition: 1s;
+    z-index: 2;
+    display: none;
+}
+.popup-window-opened{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(10px);
+    transition: 1s;
+    z-index: 2;
+    display: block;
+}
+#pop-wind-cont-createQuestion{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#pop-wind-body-createQuestion {
+    margin: auto;
+    width: 90%;
+    height: 350px;
+    text-align: center;
+    background: linear-gradient(38.86deg, #F06413 -1.25%, #FF991C 92.84%);
+    box-shadow: -15px 70px 70px rgba(0, 0, 0, 0.25);
+    border-radius: 55px;
+    position: relative;
+}
+#popup-btn-createQuestion{
+    width: 50%;
+    height: 60px;
+    border: none;
+    background-color: #FFFFFF;
+    color: #CA5E06;
+    border-radius: 35px;
+    font-size: 23px;
+}
+#pop-wind-body-first-createQuestion{
+    padding-top: 30px;
+    text-align: right;
+    padding-right: 50px;
+    padding-bottom: 30px;
+}
+#pop-wind-body-second-createQuestion{
+    padding-top: 30px;
+}
+#pop-wind-body-third-createQuestion{
+    padding-top: 70px;
+}
+#createdQuestionP-pop-up{
+    font-size: 20px;
+    color: white;
+}

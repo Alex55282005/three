@@ -3,163 +3,19 @@ import "../styles/answerOnQuestions.css" ;
 import SwitchThemeBtn from "../statements/switchBtn"
 import logo from "../resources/logo.png"
 import setTheme from "../statements/setTheme";
-import axios from "axios";
 
 
-function Answer_on_Questions() {
-    function loadQuestForAnswering() {
+
+function CreatedQuestion() {
+    function setText() {
+        const text = document.querySelector(".textOfCreatedQuest");
+        const newValue = sessionStorage.getItem('lastQuestionText');
+        text.innerHTML = newValue;
         setTheme();
-        const arrayOfQuestions = [];
-        axios.get("https://63e3df33c919fe386c110a58.mockapi.io/questions").then((response) => {
-            const dataOfQuest = response.data;
-            for (let i = 0; i < dataOfQuest.length; i++) {
-                arrayOfQuestions.push(dataOfQuest[i]);
-            }
-            createHtmlOfQuest(arrayOfQuestions);
-            
-        }).catch();
-        
-    }
-    loadQuestForAnswering();
-    let innitNumOfQuest = 0;
-    const newArrayOfQuest = [];
-    function createHtmlOfQuest(arrayOfQuestions) {
-        const textOfQuestP = document.querySelector(".textOfQuest");
-        const btnYesVal = document.querySelector("#AnswBtnYesVal");
-        const btnNoVal = document.querySelector("#AnswBtnNoVal");
-        const idOfQuest = document.querySelector(".idOfQuest");
-        let newQuestionData = arrayOfQuestions[innitNumOfQuest];
-
-        textOfQuestP.innerHTML = newQuestionData.text;
-        btnYesVal.innerHTML = newQuestionData.answerYes;
-        btnNoVal.innerHTML = newQuestionData.answerNo;
-        idOfQuest.innerHTML = newQuestionData.id;
-        createNewArray(arrayOfQuestions);
-        
-    
-    }
-    function createNewArray(arrayOfQuestions) {
-        for (let i = 0; i < arrayOfQuestions.length; i++) {
-            newArrayOfQuest.push(arrayOfQuestions[i]);
-        }
     }
 
-    function nextQuestion() {
-        innitNumOfQuest = innitNumOfQuest + 1;
-        const blckCont = document.querySelector("#answBtnCont");
-        const btnYes = document.querySelector("#AnswBtnYes");
-        const btnNo = document.querySelector("#AnswBtnNo");
-        const btnYesVal = document.querySelector("#AnswBtnYesVal");
-        const btnNoVal = document.querySelector("#AnswBtnNoVal");
-        const nextPageBtn = document.querySelector("#nextQuestBtn");
-
-        blckCont.classList = "answBtnCont";
-        btnYes.classList = "AnswBtnYes";
-        btnNo.classList = "AnswBtnNo";
-        btnYesVal.classList = "AnswBtnYesVal";
-        btnNoVal.classList = "AnswBtnNoVal";
-        nextPageBtn.classList = "nextQuestBtn";
-
-        const textOfQuestP = document.querySelector(".textOfQuest");
-        textOfQuestP.innerHTML = "";
-
-        btnYesVal.innerHTML = "";
-        btnNoVal.innerHTML = "";
-
-        createNextQuestion(newArrayOfQuest);
-    }
-
-
-
-    function createNextQuestion(newArrayOfQuest) {
-        const textOfQuestP = document.querySelector(".textOfQuest");
-        const btnYesVal = document.querySelector("#AnswBtnYesVal");
-        const btnNoVal = document.querySelector("#AnswBtnNoVal");
-        const idOfQuest = document.querySelector(".idOfQuest");
-        let newQuestionData = newArrayOfQuest[innitNumOfQuest];
-        const popUp = document.querySelector("#popup-window-quest");
-
-
-        if (innitNumOfQuest < newArrayOfQuest.length) {
-            textOfQuestP.innerHTML = newQuestionData.text;
-            btnYesVal.innerHTML = newQuestionData.answerYes;
-            btnNoVal.innerHTML = newQuestionData.answerNo;
-            idOfQuest.innerHTML = newQuestionData.id;
-        }else if (innitNumOfQuest >= newArrayOfQuest.length) {
-            popUp.className = "popup-window-quest-opened";
-        }
-        
-    }
-
-    function changeBtn(e) {
-        const blckCont = document.querySelector("#answBtnCont");
-        const btnYes = document.querySelector("#AnswBtnYes");
-        const btnNo = document.querySelector("#AnswBtnNo");
-        const btnYesVal = document.querySelector("#AnswBtnYesVal");
-        const btnNoVal = document.querySelector("#AnswBtnNoVal");
-        const nextPageBtn = document.querySelector("#nextQuestBtn");
-        const idOfQuest = document.querySelector(".idOfQuest");
-
-        blckCont.classList = "answBtnContAct";
-        btnYes.classList = "AnswBtnYesAct";
-        btnNo.classList = "AnswBtnNoAct";
-        btnYesVal.classList = "AnswBtnYesValAct";
-        btnNoVal.classList = "AnswBtnNoValAct";
-        nextPageBtn.classList = "nextQuestBtnAct";
-        const userID = localStorage.getItem("userId");
-
-        if (e.target.innerHTML == "ДА") {
-            axios.get("https://63e3df33c919fe386c110a58.mockapi.io/questions/" + idOfQuest.innerHTML).then((response) => {
-                const newResponse = parseInt(response.data.answerYes) +1;
-                axios.put("https://63e3df33c919fe386c110a58.mockapi.io/questions/" + idOfQuest.innerHTML, {answerYes : newResponse}).then(() => {
-                }).catch();
-            }).catch();
-            getUserAnswerAmountUp(userID);
-            const isDoneQuest = sessionStorage.getItem("lastQuestionText");
-            if (isDoneQuest.length > 0 ) {
-                sessionStorage.removeItem("lastQuestionText");
-            }
-        }
-
-        else if (e.target.innerHTML == "НЕТ") {
-            axios.get("https://63e3df33c919fe386c110a58.mockapi.io/questions/" + idOfQuest.innerHTML).then((response) => {
-                const newResponse = parseInt(response.data.answerNo) +1;
-                axios.put("https://63e3df33c919fe386c110a58.mockapi.io/questions/" + idOfQuest.innerHTML, {answerNo : newResponse}).then(() => {
-                }).catch();
-            }).catch();
-            getUserAnswerAmountUp();
-            const isDoneQuest = sessionStorage.getItem("lastQuestionText");
-            if (isDoneQuest.length > 0 ) {
-                sessionStorage.removeItem("lastQuestionText");
-            }
-        }
-    }
-    function getUserAnswerAmountUp() {
-        const userID = sessionStorage.getItem("userId");
-        axios.get("https://63e3df33c919fe386c110a58.mockapi.io/users/" + userID).then((response) => {
-            const newResponse = response.data.answerAmount;
-            const newAmount = newResponse +1;
-            axios.put("https://63e3df33c919fe386c110a58.mockapi.io/users/" + userID, {"answerAmount" : newAmount});
-        }).catch();
-    }
-    
     return (
-        <div className="container" >
-            <div id="popup-window-quest" className="popup-window-quest">
-                <div id="pop-wind-cont-quest">
-                    <div id="pop-wind-body-quest">
-                        <div id="pop-wind-body-quest-second">
-                            <h2 id="pop-up-h2">Вопросы закончились, возвращайтесь чуть позже!</h2>
-                        </div>
-
-                        <div id="pop-wind-body-quest-third">
-                        <Link to={"/main_screen"} component={RouterLink}>
-                            <button id="popup-btn">OK</button>
-                        </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div className="container" onLoad={setText}>
             <div id="answerFrstBlck">
                 <div id="answerFrstBlckLogoBlck">
                     <div id="headerFrstBlckAnswr">
@@ -237,15 +93,17 @@ function Answer_on_Questions() {
 
             <div id="answerSecndBlck">
                 <div className="questionContainer">
-                    <p className="textOfQuest"></p>
-                    <p className="idOfQuest"></p>
-                    <div id="answBtnCont" className="answBtnCont">
-                        <button id="AnswBtnYes" className="AnswBtnYes"  onClick={changeBtn}>ДА</button>
-                        <button id="AnswBtnNo" className="AnswBtnNo"    onClick={changeBtn}>НЕТ</button>
-                        <button id="AnswBtnYesVal"  className="AnswBtnYesVal"></button>
-                        <button id="AnswBtnNoVal"   className="AnswBtnNoVal"></button>
+                    <div className="textContainerCreated">
+                        <p className="textOfCreatedQuest"></p>
                     </div>
-                        <button id="nextQuestBtn" className="nextQuestBtn" onClick={nextQuestion}>СЛЕДУЮЩИЙ ВОПРОС</button>   
+                    
+                    <div id="answBtnCont" className="answBtnContAct">
+                        <button className="AnswBtnYesValAct">0</button>
+                        <button className="AnswBtnNoValAct">0</button>
+                    </div>
+                    <Link to={"/create_quest"} component={RouterLink}>
+                        <button id="nextQuestBtn" className="nextQuestBtnAct">ЗАДАТЬ ЕЩЕ ВОПРОС</button>
+                    </Link>   
                 </div>
             </div>
 
@@ -297,4 +155,4 @@ function Answer_on_Questions() {
     );
 }
 
-export default Answer_on_Questions;
+export default CreatedQuestion;

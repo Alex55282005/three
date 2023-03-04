@@ -12,32 +12,155 @@ function Create_Question() {
         const userId = sessionStorage.getItem("userId");
 
         axios.get("https://63e3df33c919fe386c110a58.mockapi.io/users/" + userId).then((response) => {
-            const tempQuestId = response.data.questions;
-            const questId = tempQuestId +1;
-            createQuestionTemp(questId,quesText, userId);
-        }).catch();
+                const tempQuestId = response.data.questions;
+                const questId = tempQuestId.length +1;
+                const userAnswers = response.data.answerAmount;
+                const newAmount = userAnswers % 3;
+                if (newAmount == 0) {
+                    isPostedQuestion(questId,quesText, userId);
+                }else if (newAmount == 1) {
+                    const moreAnsw = document.querySelector("#answ1");
+                    moreAnsw.className = "answerOnQuestionMoreAct"
+                }else if (newAmount == 2) {
+                    const moreAnsw = document.querySelector("#answ2");
+                    moreAnsw.className = "answerOnQuestionMoreAct"
+                }            
+            }).catch();
+
+
+       
+        function isPostedQuestion(questId,quesText, userId) {
+            let isPostedQuest;
+            const isPostedQuestValue = sessionStorage.getItem('lastQuestionText');
+            if (isPostedQuestValue == undefined || isPostedQuestValue == null || isPostedQuestValue == "") {
+                isPostedQuest = true;
+            }else if (isPostedQuestValue !== undefined && isPostedQuestValue !== "") {
+                isPostedQuest = false;
+            }
+
+            if (isPostedQuest == true) {
+                getValidText(questId,quesText, userId);
+            }else if (isPostedQuest == false) {
+                const moreAnsw3 = document.querySelector("#answ3");
+                moreAnsw3.classList = "answerOnQuestionMoreAct";
+            }
+        }
+        
+    }
+    function getValidText(questId,quesText, userId) {
+        const newArrText = quesText.split(" ");
+        if (quesText.length == 0) {
+            const text = document.querySelector("#nullAmount");
+            text.className = "answerOnQuestionMoreAct";
+        }else if(quesText.length > 0){
+            axios.get("https://63e3df33c919fe386c110a58.mockapi.io/questions").then((response) => {
+                const questArrayFQuest = response.data;
+                let valid;
+                for (let i = 0; i < questArrayFQuest.length; i++) {
+                    if (questArrayFQuest[i].text == quesText) {
+                        const isAlreadyDone = document.querySelector("#thereIsQuestion");
+                        isAlreadyDone.classList = "answerOnQuestionMoreAct";
+                        valid = false;
+                        break;
+                    }
+                    if (questArrayFQuest[i].text !== quesText) {
+                        valid = true;
+                    }
+                    
+                }
+                if (valid == true) {
+                    isCenzura(questId,quesText, userId)
+                }
+                
+            }).catch();
+        }
+
+
+
+        function isCenzura(questId,quesText, userId) {
+            let valid = false;
+            for (let i = 0; i < newArrText.length; i++) {
+                if (newArrText[i] == "сука" || newArrText[i] == "блять" || newArrText[i] == "уебок" || newArrText[i] == "долбаеб" || newArrText[i] == "шлюха" || newArrText[i] == "пизда" || newArrText[i] == "хуй" || newArrText[i] == "ахуенно" || newArrText[i] == "пиздато" || newArrText[i] == "ёбнутый" || newArrText[i] == "сука" || newArrText[i] == "уебан" || newArrText[i] == "пидор" || newArrText[i] == "блядь" || newArrText[i] == "уебище" || newArrText[i] == "ебал") {
+                    const text = document.querySelector("#necenzura");
+                    text.classList = "answerOnQuestionMoreAct";
+                    break;
+                }else if (newArrText[i] !== "сука" || newArrText[i] !== "блять" || newArrText[i] !== "уебок" || newArrText[i] !== "долбаеб" || newArrText[i] !== "шлюха" || newArrText[i] !== "пизда" || newArrText[i] !== "хуй" || newArrText[i] !== "ахуенно" || newArrText[i] !== "пиздато" || newArrText[i] !== "ёбнутый" || newArrText[i] !== "сука" || newArrText[i] !== "уебан" || newArrText[i] !== "пидор" || newArrText[i] !== "блядь" || newArrText[i] !== "уебище" || newArrText[i] == "ебал") {
+                    valid = true;
+                }
+                
+            }
+            if (valid == true) {
+                createQuestionTemp(questId,quesText, userId);
+            }
+        }
+        
     }
     function createQuestionTemp(questId,quesText, userId) {
+        let today = new Date();
+        const now = today.toLocaleDateString();
+        let newId = questId.toString();
+        let newUserId = userId.toString();
+        newId = newUserId + newId;
+        console.log(newId);
         const userQuestion = [
             {
-                "id": questId,
+                "date": now,
+                "id": newId,
                 "userID" : userId,
                 "text": quesText,
                 "answerYes": "0",
                 "answerNo":"0" 
             }
         ];
-        setQuestionToUser(userQuestion);
+        getUser(userQuestion,userId,quesText);
     }
-    function setQuestionToUser(userQuestion) {
-        axios.post("https://63e3df33c919fe386c110a58.mockapi.io/questions" , userQuestion[0]).then((data) => {
-            console.log(data);
+    function getUser(userQuestion,userId,quesText) {
+        axios.get("https://63e3df33c919fe386c110a58.mockapi.io/users/" + userId).then((response) => {
+            const userQuestionsArr = response.data.questions;
+            userQuestionsArr.push(userQuestion[0]);
+            setQuestionToUser(userQuestionsArr,userId,quesText);
+        });
+    }
+    function setQuestionToUser(userQuestionsArr,userId,quesText) {
+        axios.put("https://63e3df33c919fe386c110a58.mockapi.io/users/" + userId , {"questions" : userQuestionsArr}).then((response) => {
+            
+            if (response.request.statusText == "OK") {
+                sessionStorage.removeItem('lastQuestionText');
+                sessionStorage.setItem('lastQuestionText', quesText);
+                const popUp = document.querySelector("#popup-window-createQuestion");
+                popUp.classList = "popup-window-opened";
+            }
+            
+
         }).catch();
     }
 
-
     return (
         <div className="container_main" onLoad={setTheme}>
+            <div id="popup-window-createQuestion" className="popup-window-createQuestion">
+                <div id="pop-wind-cont-createQuestion">
+                    <div id="pop-wind-body-createQuestion">
+                        <div id="pop-wind-body-first-createQuestion">
+                        <Link to={"/main_screen"} component={RouterLink}>
+                            <svg width="22px" id="closePopUp" viewBox="0 0 51 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 1.97559L47.9997 44.9748" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
+<path d="M48.001 1.97559L3.00126 44.9748" stroke="#CA5E06" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </Link>
+                        </div>
+
+                        <div id="pop-wind-body-second-createQuestion">
+                            <p id="createdQuestionP-pop-up">Вопрос был опубликован! Перейти на страницу с вопросом?</p>
+                        </div>
+
+                        <div id="pop-wind-body-third-createQuestion">
+                        <Link to={"/created_question"} component={RouterLink}>
+                            <button id="popup-btn-createQuestion" >ДА</button>
+                        </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div className="header_cq">
             <div className="headerBlckQuestReq">
                 <SwitchThemeBtn/>
@@ -134,6 +257,12 @@ function Create_Question() {
                 <svg width="50%" viewBox="0 0 543 75" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20.9805 49.0176C20.9805 53.334 19.8958 56.6875 17.7266 59.0781C15.5573 61.4688 12.5137 62.6641 8.5957 62.6641C5.49674 62.6641 2.66341 62.0553 0.0957031 60.8379V57.252C1.22461 57.9603 2.54167 58.5247 4.04688 58.9453C5.55208 59.3438 7.06836 59.543 8.5957 59.543C14.5944 59.543 17.5938 56.0566 17.5938 49.084C17.5938 45.4095 16.7305 42.709 15.0039 40.9824C13.2773 39.2559 10.599 38.3926 6.96875 38.3926H3.64844V35.2715H7.16797C10.2891 35.2715 12.7018 34.3639 14.4062 32.5488C16.1107 30.7337 16.9629 28.0664 16.9629 24.5469C16.9629 21.625 16.3099 19.4557 15.0039 18.0391C13.7201 16.6003 11.9049 15.8809 9.55859 15.8809C8.2526 15.8809 7.04622 16.1686 5.93945 16.7441C4.85482 17.3197 3.9362 18.0612 3.18359 18.9688L0.992188 16.7109C3.42708 14.0768 6.37109 12.7598 9.82422 12.7598C13.1224 12.7598 15.6901 13.8112 17.5273 15.9141C19.3867 17.9948 20.3164 20.8724 20.3164 24.5469C20.3164 27.7122 19.5638 30.3685 18.0586 32.5156C16.5755 34.6406 14.5612 36.0352 12.0156 36.6992V36.9648C14.9596 37.3411 17.1842 38.5697 18.6895 40.6504C20.2168 42.7311 20.9805 45.5202 20.9805 49.0176ZM48.9043 62L44.6211 44.4023H32.834L28.6172 62H25.2305L36.918 13.457H40.2715L52.2246 62H48.9043ZM43.8574 41.1152L39.5742 23.0195C39.1315 20.9831 38.7884 19.0573 38.5449 17.2422C38.3457 19.168 38.0358 21.0938 37.6152 23.0195L33.4648 41.1152H43.8574ZM82.041 74.252H78.9199V62H55.7109V74.252H52.5898V58.8789H55.5117C58.1237 50.9323 59.972 43.5169 61.0566 36.6328C62.1634 29.7487 62.7168 22.0234 62.7168 13.457H77.8906V58.8789H82.041V74.252ZM74.6367 58.8789V16.5781H66.0039C65.5169 32.1836 63.1374 46.2839 58.8652 58.8789H74.6367ZM107.076 62L102.793 44.4023H91.0059L86.7891 62H83.4023L95.0898 13.457H98.4434L110.396 62H107.076ZM102.029 41.1152L97.7461 23.0195C97.3034 20.9831 96.9603 19.0573 96.7168 17.2422C96.5176 19.168 96.2077 21.0938 95.7871 23.0195L91.6367 41.1152H102.029ZM115.742 13.457H118.93V47.3906C118.93 48.1432 118.919 48.8958 118.896 49.6484C118.896 50.3789 118.797 52.6589 118.598 56.4883H118.863L137.092 13.457H141.309V62H138.121V27.1699C138.121 24.3809 138.254 21.4811 138.52 18.4707H138.254L119.893 62H115.742V13.457ZM128.492 9.57227C125.792 9.57227 123.733 8.8418 122.316 7.38086C120.9 5.89779 120.081 3.51823 119.859 0.242188H122.914C123.158 2.74349 123.7 4.51432 124.541 5.55469C125.404 6.59505 126.721 7.11523 128.492 7.11523C130.352 7.11523 131.702 6.56185 132.543 5.45508C133.406 4.34831 133.938 2.61068 134.137 0.242188H137.191C136.815 6.46224 133.915 9.57227 128.492 9.57227ZM160.002 62H156.748V16.5781H147.086V13.457H169.664V16.5781H160.002V62ZM193.172 62H175.574V13.457H193.172V16.5781H178.828V35.0059H192.375V38.127H178.828V58.8789H193.172V62ZM228.268 15.8145C224.615 15.8145 221.704 17.7513 219.535 21.625C217.388 25.4766 216.314 30.8223 216.314 37.6621C216.314 42.1113 216.812 45.985 217.809 49.2832C218.805 52.5814 220.232 55.1159 222.092 56.8867C223.951 58.6576 226.109 59.543 228.566 59.543C231.09 59.543 233.259 59.0892 235.074 58.1816V61.1699C233.348 62.166 231.079 62.6641 228.268 62.6641C225.191 62.6641 222.49 61.668 220.166 59.6758C217.864 57.6836 216.082 54.806 214.82 51.043C213.559 47.2578 212.928 42.7754 212.928 37.5957C212.928 29.8483 214.3 23.7611 217.045 19.334C219.812 14.9069 223.575 12.6934 228.334 12.6934C231.3 12.6934 233.89 13.3796 236.104 14.752L234.609 17.6074C232.75 16.4121 230.636 15.8145 228.268 15.8145ZM243.109 13.457H252.406C256.214 13.457 259.135 14.431 261.172 16.3789C263.23 18.3268 264.26 21.2044 264.26 25.0117C264.26 31.5859 261.858 35.349 257.055 36.3008V36.5664C259.822 37.1419 261.88 38.3815 263.23 40.2852C264.581 42.1667 265.256 44.8008 265.256 48.1875C265.256 52.526 264.293 55.9128 262.367 58.3477C260.441 60.7826 257.741 62 254.266 62H243.109V13.457ZM246.363 35.0723H252.473C255.505 35.0723 257.663 34.2422 258.947 32.582C260.253 30.8997 260.906 28.3542 260.906 24.9453C260.906 22.2005 260.187 20.0977 258.748 18.6367C257.331 17.1758 255.217 16.4453 252.406 16.4453H246.363V35.0723ZM246.363 38.0605V59.0117H253.834C259.191 59.0117 261.869 55.3815 261.869 48.1211C261.869 44.8893 261.083 42.4102 259.512 40.6836C257.94 38.9349 255.738 38.0605 252.904 38.0605H246.363ZM299.621 37.6621C299.621 45.6973 298.415 51.873 296.002 56.1895C293.611 60.5059 290.147 62.6641 285.609 62.6641C281.027 62.6641 277.552 60.4948 275.184 56.1562C272.815 51.7956 271.631 45.6087 271.631 37.5957C271.631 29.2285 272.804 22.9974 275.15 18.9023C277.497 14.8073 281.016 12.7598 285.709 12.7598C290.225 12.7598 293.667 14.918 296.035 19.2344C298.426 23.5286 299.621 29.6712 299.621 37.6621ZM275.018 37.6621C275.018 44.8783 275.914 50.3346 277.707 54.0312C279.522 57.7057 282.156 59.543 285.609 59.543C289.085 59.543 291.719 57.7168 293.512 54.0645C295.327 50.4121 296.234 44.9447 296.234 37.6621C296.234 30.4681 295.349 25.0449 293.578 21.3926C291.807 17.7181 289.184 15.8809 285.709 15.8809C282.145 15.8809 279.467 17.7402 277.674 21.459C275.903 25.1556 275.018 30.5566 275.018 37.6621ZM308.652 13.457H311.84V47.3906C311.84 48.1432 311.829 48.8958 311.807 49.6484C311.807 50.3789 311.707 52.6589 311.508 56.4883H311.773L330.002 13.457H334.219V62H331.031V27.1699C331.031 24.3809 331.164 21.4811 331.43 18.4707H331.164L312.803 62H308.652V13.457ZM321.402 9.57227C318.702 9.57227 316.643 8.8418 315.227 7.38086C313.81 5.89779 312.991 3.51823 312.77 0.242188H315.824C316.068 2.74349 316.61 4.51432 317.451 5.55469C318.314 6.59505 319.632 7.11523 321.402 7.11523C323.262 7.11523 324.612 6.56185 325.453 5.45508C326.316 4.34831 326.848 2.61068 327.047 0.242188H330.102C329.725 6.46224 326.826 9.57227 321.402 9.57227ZM357.66 13.457H366.957C370.764 13.457 373.686 14.431 375.723 16.3789C377.781 18.3268 378.811 21.2044 378.811 25.0117C378.811 31.5859 376.409 35.349 371.605 36.3008V36.5664C374.372 37.1419 376.431 38.3815 377.781 40.2852C379.132 42.1667 379.807 44.8008 379.807 48.1875C379.807 52.526 378.844 55.9128 376.918 58.3477C374.992 60.7826 372.292 62 368.816 62H357.66V13.457ZM360.914 35.0723H367.023C370.056 35.0723 372.214 34.2422 373.498 32.582C374.804 30.8997 375.457 28.3542 375.457 24.9453C375.457 22.2005 374.738 20.0977 373.299 18.6367C371.882 17.1758 369.768 16.4453 366.957 16.4453H360.914V35.0723ZM360.914 38.0605V59.0117H368.385C373.742 59.0117 376.42 55.3815 376.42 48.1211C376.42 44.8893 375.634 42.4102 374.062 40.6836C372.491 38.9349 370.288 38.0605 367.455 38.0605H360.914ZM414.172 37.6621C414.172 45.6973 412.965 51.873 410.553 56.1895C408.162 60.5059 404.698 62.6641 400.16 62.6641C395.578 62.6641 392.103 60.4948 389.734 56.1562C387.366 51.7956 386.182 45.6087 386.182 37.5957C386.182 29.2285 387.355 22.9974 389.701 18.9023C392.048 14.8073 395.567 12.7598 400.26 12.7598C404.775 12.7598 408.217 14.918 410.586 19.2344C412.977 23.5286 414.172 29.6712 414.172 37.6621ZM389.568 37.6621C389.568 44.8783 390.465 50.3346 392.258 54.0312C394.073 57.7057 396.707 59.543 400.16 59.543C403.635 59.543 406.27 57.7168 408.062 54.0645C409.878 50.4121 410.785 44.9447 410.785 37.6621C410.785 30.4681 409.9 25.0449 408.129 21.3926C406.358 17.7181 403.735 15.8809 400.26 15.8809C396.696 15.8809 394.018 17.7402 392.225 21.459C390.454 25.1556 389.568 30.5566 389.568 37.6621ZM446.645 62H443.391V16.5781H426.457V62H423.203V13.457H446.645V62ZM477.59 27.4023C477.59 32.4049 476.439 36.0794 474.137 38.4258C471.857 40.7721 468.47 41.9453 463.977 41.9453H460.523V62H457.27V13.457H463.91C468.647 13.457 472.111 14.5749 474.303 16.8105C476.494 19.0462 477.59 22.5768 477.59 27.4023ZM460.523 38.957H463.777C467.585 38.957 470.285 38.0605 471.879 36.2676C473.473 34.4746 474.27 31.5195 474.27 27.4023C474.27 23.4844 473.439 20.6842 471.779 19.002C470.141 17.2975 467.596 16.4453 464.143 16.4453H460.523V38.957ZM511.523 37.6621C511.523 45.6973 510.317 51.873 507.904 56.1895C505.514 60.5059 502.049 62.6641 497.512 62.6641C492.93 62.6641 489.454 60.4948 487.086 56.1562C484.717 51.7956 483.533 45.6087 483.533 37.5957C483.533 29.2285 484.706 22.9974 487.053 18.9023C489.399 14.8073 492.919 12.7598 497.611 12.7598C502.127 12.7598 505.569 14.918 507.938 19.2344C510.328 23.5286 511.523 29.6712 511.523 37.6621ZM486.92 37.6621C486.92 44.8783 487.816 50.3346 489.609 54.0312C491.424 57.7057 494.059 59.543 497.512 59.543C500.987 59.543 503.621 57.7168 505.414 54.0645C507.229 50.4121 508.137 44.9447 508.137 37.6621C508.137 30.4681 507.251 25.0449 505.48 21.3926C503.71 17.7181 501.087 15.8809 497.611 15.8809C494.048 15.8809 491.369 17.7402 489.576 21.459C487.805 25.1556 486.92 30.5566 486.92 37.6621ZM534.268 15.8145C530.615 15.8145 527.704 17.7513 525.535 21.625C523.388 25.4766 522.314 30.8223 522.314 37.6621C522.314 42.1113 522.812 45.985 523.809 49.2832C524.805 52.5814 526.232 55.1159 528.092 56.8867C529.951 58.6576 532.109 59.543 534.566 59.543C537.09 59.543 539.259 59.0892 541.074 58.1816V61.1699C539.348 62.166 537.079 62.6641 534.268 62.6641C531.191 62.6641 528.49 61.668 526.166 59.6758C523.864 57.6836 522.082 54.806 520.82 51.043C519.559 47.2578 518.928 42.7754 518.928 37.5957C518.928 29.8483 520.3 23.7611 523.045 19.334C525.812 14.9069 529.575 12.6934 534.334 12.6934C537.3 12.6934 539.89 13.3796 542.104 14.752L540.609 17.6074C538.75 16.4121 536.636 15.8145 534.268 15.8145Z" fill="#CA5E06"/>
                 </svg>
+                <p id="answ3" className="answerOnQuestionMore">Что бы задать вопрос, ответьте еще на 3 вопроса!</p>
+                <p id="answ1" className="answerOnQuestionMore">Что бы задать вопрос, ответьте еще на 2 вопроса!</p>
+                <p id="answ2" className="answerOnQuestionMore">Что бы задать вопрос, ответьте еще на 1 вопрос!</p>
+                <p id="nullAmount" className="answerOnQuestionMore">Введите вопрос!</p>
+                <p id="necenzura" className="answerOnQuestionMore">Удалите нецензурные слова из вопроса!</p>
+                <p id="thereIsQuestion" className="answerOnQuestionMore">Такой вопрос уже существует!</p>
             </div>
             <form action="">
                 <textarea name="enter_question" cols="30" rows="10" id="enter_question_inpt" minLength={1} maxLength={150} onChange={seeValue} required></textarea>
@@ -196,6 +325,12 @@ function seeValue() {
     const text = document.querySelector("#enter_question_inpt");
     const label = document.querySelector("#quantity_of_symbols");
     label.innerHTML = text.value.length;
+    const textnull = document.querySelector("#nullAmount");
+    textnull.className = "answerOnQuestionMore";
+    const cenzura = document.querySelector("#necenzura");
+    cenzura.className = "answerOnQuestionMore";
+    const isAlreadyDone = document.querySelector("#thereIsQuestion");
+    isAlreadyDone.classList = "answerOnQuestionMore";
 }
 
 export default Create_Question;

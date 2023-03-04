@@ -20,6 +20,7 @@ import ChangeName from "./plugins/changeName"
 import FirstStartQuest from "./start_questions/first_question"
 import SecondStartQuest from "./start_questions/second_question"
 import ThirdStartQuest from "./start_questions/third_question"
+import CreatedQuestion from "./plugins/createdQuestion"
 
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='start_question_1' element={< FirstStartQuest />}/>
         <Route path='start_question_2' element={< SecondStartQuest />}/>
         <Route path='start_question_3' element={< ThirdStartQuest />}/>
+        <Route path='created_question' element={< CreatedQuestion />}/>
       </Routes>
     </BrowserRouter>
   );

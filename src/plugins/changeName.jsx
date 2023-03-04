@@ -24,7 +24,10 @@ export default function ChangeName() {
         const newArr = [];
         newArr.push(newName.value);
         axios.put("https://63e3df33c919fe386c110a58.mockapi.io/users/" + getUserId, {"name" : newArr[0]}).then((data) => {
-            console.log(data);
+            const popUp = document.querySelector("#popup-window-quest");
+            if (data.statusText == "OK") {
+                popUp.classList = "popup-window-opened";
+            }
         }).catch();
         sessionStorage.removeItem("userName");
         sessionStorage.setItem("userName", newArr[0]);
@@ -37,6 +40,21 @@ export default function ChangeName() {
 
     return(
         <div className="container" onLoad={setTheme}>
+            <div id="popup-window-quest" className="popup-window-quest">
+                <div id="pop-wind-cont-quest">
+                    <div id="pop-wind-body-quest">
+                        <div id="pop-wind-body-quest-second">
+                            <h2 id="pop-up-h2">Имя было изменено!</h2>
+                        </div>
+
+                        <div id="pop-wind-body-quest-third">
+                        <Link to={"/profile"} component={RouterLink}>
+                            <button id="popup-btn">OK</button>
+                        </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="changeProfileFirstBlck">
                 <div className="changeDataFrstHeaderBtn">
                     <Link to={"/profile"} component={RouterLink}>

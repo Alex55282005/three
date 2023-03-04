@@ -98,13 +98,17 @@
   display: block;
 }
 .darkTheme .containerNull{
-  height: 9000px;
+  height: 1100px;
 }
 .darkTheme #profileText{
   color: #BAA289;
 }
 .darkTheme .changeTextP{
   color: #BAA289;
+}
+.darkTheme .textOfCreatedQuest{
+  color: #BAA289;
+  overflow-wrap: break-word;
 }
 
 a{

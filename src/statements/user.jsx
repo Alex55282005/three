@@ -12,6 +12,7 @@ export default  function User(response){
     sessionStorage.setItem('userPassword', userPassword);
     sessionStorage.setItem('userId', userId);
     sessionStorage.setItem('userTheme', userTheme);
+    
 
 
 }
