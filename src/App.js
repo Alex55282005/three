@@ -23,10 +23,11 @@ import ThirdStartQuest from "./start_questions/third_question"
 import CreatedQuestion from "./plugins/createdQuestion"
 
 
-window.addEventListener("unload", function () {
-  return <Navigate to="/login"/>
-});
+
 function App() {
+  window.addEventListener("unload", function () {
+    return <Navigate to="/login"/>
+  });
   return (
     <BrowserRouter>
       <Routes>
