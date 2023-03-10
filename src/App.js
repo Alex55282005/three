@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route,Navigate, Routes } from "react-router-dom";
 import Main from "./components/main";
 import Login from "./pages/login";
 import Registr from "./pages/register";
@@ -22,8 +22,12 @@ import SecondStartQuest from "./start_questions/second_question"
 import ThirdStartQuest from "./start_questions/third_question"
 import CreatedQuestion from "./plugins/createdQuestion"
 
+function unloadPage() {
+  return <Navigate to="/first_start_screen"/>
+}
 
 
+window.onbeforeunload = unloadPage;
 function App() {
   return (
     <BrowserRouter>
