@@ -22,12 +22,10 @@ import SecondStartQuest from "./start_questions/second_question"
 import ThirdStartQuest from "./start_questions/third_question"
 import CreatedQuestion from "./plugins/createdQuestion"
 
-function unloadPage() {
-  return <Navigate to="/first_start_screen"/>
-}
 
-
-window.onbeforeunload = unloadPage;
+window.addEventListener("unload", function () {
+  return <Navigate to="/login"/>
+});
 function App() {
   return (
     <BrowserRouter>
